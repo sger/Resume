@@ -1,0 +1,102 @@
+\usepackage[a4paper, hmargin=25mm, vmargin=30mm, top=20mm]{geometry} 
+
+\usepackage{fancyhdr} 
+
+\usepackage{lastpage}
+
+\usepackage{hyperref} 
+
+\setcounter{secnumdepth}{0} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+
+\usepackage{fontspec} 
+\setmainfont[Path = ./fonts/,
+Extension = .otf,
+BoldFont = Erewhon-Bold,
+ItalicFont = Erewhon-Italic,
+BoldItalicFont = Erewhon-BoldItalic,
+SmallCapsFeatures = {Letters = SmallCaps}
+]{Erewhon-Regular}
+
+\usepackage{color}
+\definecolor{slateblue}{rgb}{0.23,0.56,0.72}
+
+\usepackage{sectsty} 
+\sectionfont{\color{slateblue}} 
+
+\fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ of \pageref{LastPage}}} 
+\pagestyle{plain} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+\setlength\parindent{0pt} 
+
+\newenvironment{itemize-noindent}
+{\setlength{\leftmargini}{0em}\begin{itemize}}
+{\end{itemize}}
+
+\newlength{\smallertextwidth}
+\setlength{\smallertextwidth}{\textwidth}
+\addtolength{\smallertextwidth}{-2cm}
+
+\newcommand{\sqbullet}{~\vrule height 1ex width .8ex depth -.2ex} 
+
+\renewcommand{\title}[1]{
+{\huge{\color{slateblue}\textbf{#1}}}\\ 
+\rule{\textwidth}{0.5mm}\\ 
+}
+
+\newcommand{\job}[6]{
+\begin{tabbing}
+\hspace{2cm} \= \kill
+\textbf{#1} \> \href{#4}{#3} \\
+\textbf{#2} \>\+ \textit{#5} \\
+\begin{minipage}{\smallertextwidth}
+\vspace{2mm}
+#6
+\end{minipage}
+\end{tabbing}
+\vspace{2mm}
+}
+
+\newcommand{\skillgroup}[2]{
+\begin{tabbing}
+\hspace{5mm} \= \kill
+\sqbullet \>\+ \textbf{#1} \\
+\begin{minipage}{\smallertextwidth}
+\vspace{2mm}
+#2
+\end{minipage}
+\end{tabbing}
+}
+
+\newcommand{\interestsgroup}[1]{
+\begin{tabbing}
+\hspace{5mm} \= \kill
+#1
+\end{tabbing}
+\vspace{-10mm}
+}
+
+\newcommand{\interest}[1]{\sqbullet \> \textbf{#1}\\[3pt]} 
+
+\newcommand{\tabbedblock}[1]{
+\begin{tabbing}
+\hspace{2cm} \= \hspace{4cm} \= \kill
+#1
+\end{tabbing}
+}
+
+\newcommand{\education}[4]{
+\begin{tabbing}
+\hspace{2cm} \= \kill
+\textbf{#1} \> \href{#4}{#3} \\
+\textbf{#2} \>\+\\
+\begin{minipage}{\smallertextwidth}
+\vspace{1mm}
+\end{minipage}
+\end{tabbing}
+\vspace{1mm}
+}
